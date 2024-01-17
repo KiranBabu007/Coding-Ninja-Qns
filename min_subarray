@@ -1,0 +1,26 @@
+You have been given an array 'ARR' of integers consisting of ‘N’ integers and a positive integer ‘K’. 
+Your task is to find a subarray(contiguous) of size ‘K’ such that the sum of its elements is minimum.
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def minSubarraySum(arr, n, k):
+	min_sum=float('inf');
+	m=0;
+	sum=0;
+	for i in range(n-k+1):
+		for j in range(i,i+k):
+			if j<n:
+				sum+=arr[j];
+			else:
+				sum=float('inf');
+				break
+
+		if(sum<min_sum):
+			min_sum=sum
+			m=i;
+		sum=0;
+	
+	return min_sum;
